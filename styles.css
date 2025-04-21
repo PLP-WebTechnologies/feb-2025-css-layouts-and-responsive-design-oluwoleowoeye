@@ -1,0 +1,161 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Navigation Bar - Flexbox */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #4CAF50;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Main Content - CSS Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  background-color: #f4f4f4;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+  padding: 1.5rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+  .grid-container {
+      grid-template-columns: 1fr;
+  }
+  
+  .features {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sidebar {
+      order: 3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+      position: absolute;
+      right: 0;
+      top: 70px;
+      background-color: #333;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      padding: 1rem 0;
+      clip-path: circle(0px at 90% -10%);
+      transition: all 0.5s ease-out;
+  }
+  
+  .nav-links.active {
+      clip-path: circle(1000px at 90% -10%);
+  }
+  
+  .nav-links li {
+      margin: 1rem 0;
+  }
+  
+  .burger {
+      display: block;
+  }
+  
+  .features {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* Animation for mobile menu */
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
